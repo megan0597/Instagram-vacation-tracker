@@ -1,0 +1,11 @@
+.image {
+    /*background-color: #265a88;*/
+    /*margin: 15px;*/
+    width: 200px;
+}
+
+html, body, #map-canvas {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
