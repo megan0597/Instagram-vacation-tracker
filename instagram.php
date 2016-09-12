@@ -7,8 +7,8 @@ $instagramApiUrl = 'https://api.instagram.com/v1/';
 
 // query string with default parameter (client_id)
 $queryString = array(
-    "client_id" => INSTAGRAM_CLIENT_ID,
-    "q" => "1755076463",
+    "access_token" => INSTAGRAM_ACCESS_TOKEN
+//    "q" => "17566509",
 );
 
 // method I use to get my data
@@ -18,9 +18,6 @@ $methods = array(
 
 // array which contains the data
 $myData = [];
-
-// Users media
-//https://api.instagram.com/v1/users/1755076463/media/recent/?client_id=2ab050e5d05543eba938edc078eeb5cd
 
 // dit moet ik gebruiken anders geeft mijn php een fout
 $arrContextOptions = array(
@@ -32,7 +29,7 @@ $arrContextOptions = array(
 
 $method = str_replace("@replace", "1755076463", $methods[0]);
 $data = json_decode(file_get_contents($instagramApiUrl . $method . "?" . http_build_query($queryString), false, stream_context_create($arrContextOptions)));
-                                                                                                       // dit stuk hoort bij hetgene hierboven
+
 // filter the data to what is necessary
 foreach ($data->data as $element){
     $myData[] = [
