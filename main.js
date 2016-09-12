@@ -4,6 +4,8 @@ $(initialize);
 //array with data
 var pictures = [];
 
+var map;
+
 /**
  * Initialize our application
  */
@@ -29,14 +31,16 @@ function getData() {
  * @param response
  */
 function getDataSuccessHandler(response) { // response is where the Instagram data is now
+
+    console.log(response);
+
     var myLatlng = new google.maps.LatLng(response[0].location.latitude, response[0].location.longitude); //set a center
     var mapOptions = {
         zoom: 4,
         center: myLatlng
     };
 
-    // load the map
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     /**
      * pushes the data into an array
